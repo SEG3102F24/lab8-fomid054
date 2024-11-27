@@ -1,0 +1,33 @@
+# Define the Employee type
+type Employee {
+    employeeId: ID!
+    name: String!
+    dateOfBirth: String
+    city: String
+    salary: Float
+    gender: String
+    email: String
+}
+
+# Define the CreateEmployeeInput input type
+input CreateEmployeeInput {
+    name: String!
+    dateOfBirth: String
+    city: String
+    salary: Float
+    gender: String
+    email: String
+}
+
+# Define the Query type
+type Query {
+    employees: [Employee]
+    employeeById(employeeId: ID!): Employee
+}
+
+# Define the Mutation type
+type Mutation {
+    createEmployee(input: CreateEmployeeInput!): Employee!
+    updateEmployee(employeeId: ID!, input: CreateEmployeeInput!): Employee!
+    deleteEmployee(employeeId: ID!): Boolean
+}
